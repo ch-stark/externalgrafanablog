@@ -6,8 +6,6 @@ While there is an older Red Hat blog post covering this, the procedure has aged.
 
 In this post, we'll provide an updated method for extracting the necessary connection details and clarify the boundaries of support for this configuration.
 
----
-
 ## Understanding the Support Scope
 
 Before we dive into the technical steps, it is vital to understand what is (and isn't) supported by Red Hat when using an external Grafana instance:
@@ -15,8 +13,6 @@ Before we dive into the technical steps, it is vital to understand what is (and 
 - **Supported:** The connectivity to the Observatorium API and the health of the underlying metrics pipeline.
 - **Not Supported:** The configuration, maintenance, or troubleshooting of external Grafana dashboards. If you choose to use your own Grafana instance, the responsibility for dashboard persistence and visualization logic remains with the user.
 - **Security Note:** The certificates extracted for this connection grant read-only access to metrics.
-
----
 
 ## Step-by-Step: Extracting Connection Credentials
 
@@ -54,9 +50,6 @@ echo "${client_key}" >> /tmp/external-grafana.txt
 
 echo "Extraction complete. View details at /tmp/external-grafana.txt"
 ` `` 
-
----
-
 ## Configuring the Grafana Data Source
 
 Once you have these values, log in to your external Grafana instance and add a new Prometheus data source with the following settings:
